@@ -84,7 +84,7 @@ function App() {
           <Button
             className={"clear"}
             onClick={() => handleClear()}
-            value={`ce`}
+            value={`clear`}
           />
         </div>
       </div>
