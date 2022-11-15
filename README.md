@@ -16,5 +16,5 @@ To run this application:
 
 1. In your terminal type `git clone https://github.com/Ali-Aftab/CalcUp.git`
 2. Access the folder with `cd CalcUp`
-3. Install the required modules with `npm install`
+3. Install the required modules with `npm install --force`
 4. Type `npm run start` to use Calc Up!
