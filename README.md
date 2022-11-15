@@ -1,6 +1,6 @@
 # Calc Up
 
-Calc UP is client facing application to showcase a simple caculator built with React.
+Calc Up is client facing application to showcase a simple caculator built with React.
 
 <p align="center">
             <img src="/public/CalcUp.png" width="50%" height="50%" >

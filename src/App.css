@@ -22,6 +22,7 @@
 
 .clear {
   background-color: #00d8d6;
+  grid-column: 3 / 5
 }
 
 .clear:hover {

@@ -13,11 +13,11 @@ button {
     background-color: #05c46b;
   }
 
-  .whole-row {
-    grid-column: 1 / 5;
+  .parentheses {
+
     background-color: #fd9644;
   }
-  .whole-row:hover {
+  .parentheses:hover {
     background-color: #fa8231;
   }
   
