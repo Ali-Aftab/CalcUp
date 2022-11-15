@@ -5,19 +5,24 @@ import Screen from "./Screen";
 
 const operArr = ["+", "-", "×", "÷"];
 
-const numberArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const numberArr = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
 
 function App() {
-  const [calc, setCalc] = useState({ total: 0, operation: "", input: 0 });
+  const [calc, setCalc] = useState({
+    total: 0,
+    operation: "",
+    input: 0,
+    screen: "Total",
+  });
 
   const handleOper = (operation) => {
     if (!calc.operation) {
       const total = calc.input;
-      setCalc({ ...calc, operation, total, input: 0 });
+      setCalc({ ...calc, operation, total, input: 0, screen: "Total" });
     } else {
       const result = handleMath(calc.total, operation, calc.input);
       if (typeof result === "number") {
-        setCalc({ ...calc, input: 0, total: result });
+        setCalc({ ...calc, input: 0, total: result, screen: "Total" });
       }
     }
   };
@@ -51,22 +56,25 @@ function App() {
 
   const handleInput = (num) => {
     const input = calc.input * 10 + num;
-    setCalc({ ...calc, input });
+    setCalc({ ...calc, input, screen: "Input" });
   };
 
   const handleClear = () => {
-    setCalc({ total: 0, operation: "", input: 0 });
+    setCalc({ total: 0, operation: "", input: 0, screen: "Total" });
   };
 
   const handlePosNeg = () => {
-    setCalc({ ...calc, input: calc.input * -1 });
+    setCalc({ ...calc, input: calc.input * -1, screen: "Input" });
   };
 
   return (
     <div>
-      <Screen value={{ title: "Total", result: calc.total }} />
-      <Screen value={{ title: "Operator", result: calc.operation }} />
-      <Screen value={{ title: "Input", result: calc.input }} />
+      <Screen
+        value={{
+          title: calc.screen,
+          result: calc.screen === "Total" ? calc.total : calc.input,
+        }}
+      />
 
       <div className="wrapper">
         <div className={"grid"}>
@@ -81,8 +89,16 @@ function App() {
           {numberArr.map((num, i) => (
             <Button key={i} value={num} onClick={() => handleInput(num)} />
           ))}
-          <Button onClick={() => handleEqual()} value={"="} />
-          <Button onClick={() => handleClear()} value={`ce`} />
+          <Button
+            className={"equal"}
+            onClick={() => handleEqual()}
+            value={"="}
+          />
+          <Button
+            className={"clear"}
+            onClick={() => handleClear()}
+            value={`ce`}
+          />
           <Button
             className={"whole-row"}
             onClick={() => handlePosNeg()}
