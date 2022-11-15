@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import OperationButton from "./OperationButton";
-import NumberButton from "./NumberButton";
+import Button from "./Button";
 import Screen from "./Screen";
 
 const operArr = ["+", "-", "×", "÷"];
@@ -64,21 +63,33 @@ function App() {
   };
 
   return (
-    <div className="wrapper">
+    <div>
       <Screen value={{ title: "Total", result: calc.total }} />
-      <Screen value={{ title: "Input", result: calc.input }} />
       <Screen value={{ title: "Operator", result: calc.operation }} />
-      {operArr.map((val, i) => (
-        <OperationButton value={val} key={i} onClick={() => handleOper(val)} />
-      ))}
-      <div>
-        {numberArr.map((num, i) => (
-          <NumberButton key={i} value={num} onClick={() => handleInput(num)} />
-        ))}
+      <Screen value={{ title: "Input", result: calc.input }} />
+
+      <div className="wrapper">
+        <div className={"grid"}>
+          {operArr.map((val, i) => (
+            <Button
+              className={"operator-button"}
+              value={val}
+              key={i}
+              onClick={() => handleOper(val)}
+            />
+          ))}
+          {numberArr.map((num, i) => (
+            <Button key={i} value={num} onClick={() => handleInput(num)} />
+          ))}
+          <Button onClick={() => handleEqual()} value={"="} />
+          <Button onClick={() => handleClear()} value={`ce`} />
+          <Button
+            className={"whole-row"}
+            onClick={() => handlePosNeg()}
+            value={`Pos/Neg`}
+          />
+        </div>
       </div>
-      <button onClick={() => handleEqual()}>=</button>
-      <button onClick={() => handleClear()}>ce</button>
-      <button onClick={() => handlePosNeg()}>+-</button>
     </div>
   );
 }
