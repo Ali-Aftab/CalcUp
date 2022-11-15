@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import OperationButton from "./OperationButton";
 import NumberButton from "./NumberButton";
+import Screen from "./Screen";
 
 const operArr = ["+", "-", "×", "÷"];
 
@@ -64,13 +65,9 @@ function App() {
 
   return (
     <div className="wrapper">
-      <h2>Total</h2>
-      <h3>{calc.total}</h3>
-      <h2>Input</h2>
-      <h3>{calc.input}</h3>
-      <h2>Operator</h2>
-      <h3>{calc.operation}</h3>
-      <br />
+      <Screen value={{ title: "Total", result: calc.total }} />
+      <Screen value={{ title: "Input", result: calc.input }} />
+      <Screen value={{ title: "Operator", result: calc.operation }} />
       {operArr.map((val, i) => (
         <OperationButton value={val} key={i} onClick={() => handleOper(val)} />
       ))}
