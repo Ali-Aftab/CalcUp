@@ -3,6 +3,23 @@
   height: 540px;
   padding: 10px;
   border-radius: 10px;
-  background-color: #00b894;
-  background-image: linear-gradient(315deg, #00b894 0%, #55efc4 74%);
+  /* background-color: #00b894; */
+  /* background-image: linear-gradient(315deg, #00b894 0%, #55efc4 74%); */
 }
+
+.operator-button {
+  background-color: #ef5777;
+}
+.operator-button:hover {
+  background-color: #f53b57;
+}
+
+.grid {
+  width: 100%;
+  height: calc(100% - 110px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 10px;
+}
+
