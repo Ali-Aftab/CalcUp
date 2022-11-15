@@ -10,13 +10,12 @@
     box-sizing: border-box;
 }
 .screen-static {
-    background-color: #6c5ce7;
+    background-color: #ff9ff3;
     justify-content:center;
     color: white;
   }
   .screen-nonstatic {
-    background-color: #b2bec3;
+    background-color: #f8a5c2;
     justify-content: flex-end;
     color: white;
-
   }

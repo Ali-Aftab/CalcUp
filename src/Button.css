@@ -10,10 +10,14 @@ button {
   }
   
   button:hover {
-    background-color: #130f40;
+    background-color: #05c46b;
   }
 
   .whole-row {
     grid-column: 1 / 5;
+    background-color: #fd9644;
+  }
+  .whole-row:hover {
+    background-color: #fa8231;
   }
   
